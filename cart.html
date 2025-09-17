@@ -1,0 +1,31 @@
+<section class="cart section-p1">
+    <h2>Your Cart</h2>
+    <div id="cart-items"></div>
+    <h3 id="total"></h3>
+    <a href="pay.html"><button class="normal">Proceed to Pay</button></a>
+  </section>
+  
+  <script>
+    function displayCart() {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      let cartItems = document.getElementById("cart-items");
+      let total = 0;
+  
+      cartItems.innerHTML = "";
+      cart.forEach(item => {
+        cartItems.innerHTML += `
+          <div class="cart-item">
+            <img src="${item.image}" width="80">
+            <span>${item.name}</span>
+            <span>$${item.price}</span>
+          </div>
+        `;
+        total += item.price;
+      });
+  
+      document.getElementById("total").innerText = "Total: $" + total;
+    }
+  
+    window.onload = displayCart;
+  </script>
+  

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment - Ecommerce</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Background gradient */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ffecd2, #fcb69f);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Center card */
+    .payment-box {
+      background: #fff;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      text-align: center;
+      width: 350px;
+    }
+
+    .payment-box h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .payment-box img {
+      width: 200px;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .payment-box p {
+      font-size: 18px;
+      font-weight: bold;
+      color: #444;
+      margin-bottom: 25px;
+    }
+
+    /* Pay button */
+    .pay-btn {
+      background: #007bff;
+      color: #fff;
+      border: none;
+      padding: 12px 22px;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .pay-btn:hover {
+      background: #0056b3;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Payment Section -->
+  <div class="payment-box">
+    <h2>Complete Your Payment</h2>
+
+    <!-- Product details loaded dynamically -->
+    <div id="productBox">
+      <img id="productImage" src="" alt="Selected Product">
+      <p id="selectedProduct"></p>
+    </div>
+
+    <!-- Pay Now button -->
+    <button class="pay-btn" onclick="redirectHome()">Pay Now</button>
+  </div>
+
+  <script>
+    // Load product details from localStorage
+    window.onload = function () {
+      const name = localStorage.getItem("productName");
+      const price = localStorage.getItem("productPrice");
+      const img = localStorage.getItem("productImg");
+
+      if (name && price && img) {
+        document.getElementById("selectedProduct").innerText = `${name} - $${price}`;
+        document.getElementById("productImage").src = img;
+      } else {
+        document.getElementById("selectedProduct").innerText = "No product selected!";
+      }
+    };
+
+    // Redirect to home after payment
+    function redirectHome() {
+      alert("✅ Payment Successful! Redirecting to Home Page...");
+      localStorage.clear(); // clear product after payment
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>

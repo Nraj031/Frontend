@@ -1,0 +1,261 @@
+/* ===== Global Styles ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Spartan", sans-serif;
+}
+
+body {
+  width: 100%;
+  background: #f5f5f5;
+  color: #222;
+  line-height: 1.6;
+}
+
+h1 { font-size: 50px; line-height: 64px; color: #222; }
+h2 { font-size: 36px; line-height: 54px; color: #222; }
+h4 { font-size: 20px; color: #222; }
+p  { font-size: 16px; color: #555; margin: 15px 0; }
+
+.section-p1 { padding: 40px 80px; }
+.section-m1 { margin: 40px 0; }
+
+button.normal {
+  padding: 10px 20px;
+  border: none;
+  background: #ff6600;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+button.normal:hover { background: #e65c00; }
+
+/* ===== Navbar ===== */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  padding: 15px 30px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+#menu-icon {
+  font-size: 24px;
+  cursor: pointer;
+  display: none;
+}
+
+.navbar {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.navbar li a {
+  text-decoration: none;
+  color: #222;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.navbar li a:hover,
+.navbar li a.active { color: #ff6600; }
+
+@media (max-width: 768px) {
+  #menu-icon { display: block; }
+  .navbar {
+    position: absolute;
+    top: 60px;
+    left: -100%;
+    flex-direction: column;
+    background: #fff;
+    width: 100%;
+    padding: 20px;
+    transition: left 0.3s;
+  }
+  .navbar.active { left: 0; }
+}
+
+/* ===== Hero (Home Page) ===== */
+.hero {
+  text-align: center;
+  padding: 100px 20px;
+  background: linear-gradient(to right, #ff9a9e, #fad0c4);
+  color: #fff;
+}
+.hero h1 { font-size: 48px; margin-bottom: 10px; }
+.hero p { font-size: 18px; margin-bottom: 20px; }
+
+/* ===== Shop Page ===== */
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+.products div {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  background: #fff;
+  transition: transform 0.3s;
+}
+
+.products div:hover {
+  transform: scale(1.05);
+}
+
+.products img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover; /* keeps aspect ratio but crops evenly */
+  border-radius: 8px;
+}
+
+.products h4 {
+  margin: 10px 0 5px;
+}
+
+.products p {
+  font-weight: bold;
+  color: #444;
+}
+
+.small-img-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+.small-img-group img {
+  width: 70px; height: 70px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+.small-img-group img:hover { border-color: #ff6600; }
+
+/* ===== Cart Page ===== */
+.cart {
+  width: 80%;
+  margin: 50px auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+.cart table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.cart table th, .cart table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: center;
+}
+.cart table th { background: #f4f4f4; }
+.checkout-btn { margin-top: 20px; float: right; }
+
+/* ===== Blog Page ===== */
+.blogs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+.blog {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.blog img { width: 100%; border-radius: 8px; }
+.blog h4 { margin: 10px 0; }
+
+/* ===== About Page ===== */
+.about {
+  max-width: 900px;
+  margin: 50px auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  text-align: center;
+}
+.about img {
+  width: 200px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+/* ===== Contact Page ===== */
+.contact {
+  max-width: 800px;
+  margin: 50px auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 8px;
+}
+.contact form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.contact input, .contact textarea {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+}
+.contact button { align-self: flex-start; }
+
+/* ===== Footer ===== */
+footer {
+  background: #333;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+}
+
+/* General button style */
+button {
+  background: #ff6f61; /* nice red-orange */
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  background: #e85b50;
+  transform: scale(1.05);
+}
+
+/* Specific style for Buy Now */
+.buy-btn {
+  background: #28a745; /* green */
+}
+
+.buy-btn:hover {
+  background: #218838;
+}
+
+/* Specific style for Pay Now */
+.pay-btn {
+  background: #007bff; /* blue */
+}
+
+.pay-btn:hover {
+  background: #0056b3;
+}
+
